@@ -1,59 +1,54 @@
-# RPABotOperationsCenter
+# 🤖 RPA Bot Operations Center - Frontend API Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.3.
+Interfaz web  desarrollada en **Angular** para el monitoreo, gestión y control centralizado de usuarios y operaciones RPA. Diseñada bajo una arquitectura limpia, escalable y basada en **Standalone Components**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🛠️ Tecnologías Utilizadas
 
-```bash
-ng serve
-```
+* **Framework:** Angular 21+ (Standalone Components Architecture)
+* **Lenguaje:** TypeScript / HTML5 / SCSS
+* **Gestión de Peticiones:** HttpClient & HTTP Interceptors (JWT Bearer Injection)
+* **Enrutamiento y Seguridad:** Angular Router (Functional Guards & Lazy Loading)
+* **Formateo y Estilo:** Prettier & EditorConfig
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📂 Estructura del Proyecto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+El proyecto implementa el patrón **Enterprise Angular Architecture** (Core / Features / Shared), garantizando modularidad, mantenibilidad y desacoplamiento de responsabilidades:
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+RPA_Bot_Operations_Center/
+├── src/
+│   ├── app/
+│   │   ├── core/                    # Servicios globales, lógica de negocio y estado
+│   │   │   ├── guards/              # Protección de rutas (AuthGuard, AdminGuard)
+│   │   │   ├── models/              # Interfaces y tipos de datos (User, AuthToken)
+│   │   │   ├── services/            # Servicios de API (AuthService, UserService)
+│   │   │   └── utils/               # Helpers y constantes universales
+│   │   │
+│   │   ├── features/                # Módulos/Páginas funcionales (Lazy Loaded)
+│   │   │   ├── auth/                # Vistas de Login y Registro público
+│   │   │   └── users/               # Vistas de Administración y Perfil de Usuario
+│   │   │
+│   │   ├── interceptors/            # Interceptores HTTP (Inyección de JWT & Manejo de 401/500)
+│   │   ├── layout/                  # Componentes estructurales (Sidebar, Navbar, Footer)
+│   │   ├── shared/                  # Componentes reusables, directivas y pipes (UI Kit)
+│   │   │
+│   │   ├── app.config.ts            # Configuración global de proveedores e interceptores
+│   │   ├── app.routes.ts            # Mapeo general de rutas y Lazy Loading
+│   │   ├── app.ts / app.html        # Componente raíz de la aplicación
+│   │   └── app.scss                 # Estilos globales de la app
+│   │
+│   ├── environments/                # Variables de entorno (API URL, Dev/Prod)
+│   │   ├── environment.ts
+│   │   └── environment.development.ts
+│   │
+│   ├── main.ts                      # Punto de entrada de la aplicación Angular
+│   └── styles.scss                  # Reglas CSS/SCSS globales
+│
+├── angular.json                     # Configuración del CLI de Angular
+├── package.json                     # Dependencias y scripts NPM
+├── README.md
+└── tsconfig.json                    # Configuración del compilador TypeScript

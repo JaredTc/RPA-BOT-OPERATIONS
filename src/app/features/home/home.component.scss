@@ -1,9 +1,402 @@
 
+:root{
+  --home-background:  #f8f9fa;
+  --titleTextSize: 16px;
+  --titleSubTextSize: 14px;
+}
 
-.div-home-page{
+.div-main-home {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 20px;
+  background: #f8f9fa;
   gap: 20px;
+
+  .header-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .date-month{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      span{
+        color: #180191B2;
+        font-weight: 600;
+        font-size: 18px;
+        text-transform: capitalize;
+
+      }
+    }
+
+
+  }
+
+  &-cards-indicators {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+
+
+    .progress-card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 16px;
+      width: 100%;
+      height: 100px;
+      display: flex;
+
+      gap: 15px;
+      //border: 1px solid;
+      justify-content: center;
+
+      .body-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span{
+          font-size: 20px !important;
+        }
+      }
+
+      .icon-text{
+        .icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .header {
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        gap: 10px;
+        //font-size: 20px;
+
+
+
+        .value {
+          margin-left: auto;
+          //font-weight: bold;
+        }
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 13px;
+        background: #E7494999;
+        //border: 1px solid #E7494999;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .progress {
+          height: 100%;
+          background: #1e90ff;
+          transition: width 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+
+
+  &-two-charts{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+
+    .chart-line{
+      background: #ffffff;
+      width: 50%;
+      padding: 20px;
+      //height: 300px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .bar-chart{
+      background: #ffffff;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+      width: 50%;
+    }
+
+
+  }
+
+  &-agent-activity{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+
+    .agent-perform{
+      background: #ffffff;
+      width: 70%;
+      padding: 20px;
+      //height: 400px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+      //overflow-x: hidden;
+      //overflow-y: scroll;
+
+      .agents-div {
+        //border: 1px solid black;
+        height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+
+
+        .div-card{
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          padding: 10px;
+          border-radius: 10px;
+          //background: #f8f9fa;
+          margin-bottom: 10px;
+          justify-content: space-between;
+
+          .icon{
+            width: 60px;
+            img{
+              border-radius: 24px;
+              width: 50px;
+            }
+          }
+
+          .agent-info{
+            width: calc(100% - 60px);
+            .tag{
+              span{
+                font-weight: 500;
+              }
+
+            }
+
+
+            .porcent-desc{
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+
+              span{
+                color: #1e90ff;
+              }
+            }
+
+
+          }
+
+          .time-lapse{
+            display: flex;
+            align-items: end;
+            gap: 10px;
+            width: 20%;
+
+            i{
+              color: #1e90ff;
+              //font-size: 20px;
+            }
+            span{
+              font-weight: 500;
+              font-size: 16px;
+            }
+          }
+
+
+        }
+      }
+
+      .btn-show{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+
+        ::ng-deep{
+          .p-button{
+            width: 100%;
+            height: 40px;
+            background: #ffffff;
+            border: none;
+            color: #1e90ff;
+            font-weight: 600;
+            font-size: 16px;
+          }
+        }
+      }
+
+
+
+    }
+    .recent-activity{
+      background: #ffffff;
+      width: 30%;
+      //height: 400px;
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+
+      .container-task {
+        height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+
+        .card-activity {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          padding: 10px;
+          border-bottom: dashed 1.5px #1e90ff;
+          margin-bottom: 10px;
+          justify-content: space-between;
+
+          .task-info-content{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .status{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+
+              div{
+                text-align: center;
+                padding: 10px;
+                background: rgba(30, 144, 255, 0.1);
+                color: #1e90ff;
+                border-radius: 12px;
+                width: 90%;
+                font-weight: 800;
+              }
+            }
+
+          }
+
+          .task-info{
+            display: flex;
+            flex-direction: column;
+            .title{
+              font-weight: 800;
+              color: rgba(89, 89, 89, 1);
+            }
+
+            .tag,.time{
+              color: #1e90ff;
+              font-weight: 500;
+            }
+
+          }
+
+        }
+      }
+    }
+
+  }
+
+
+}
+.progress-bar {
+  width: 100%;
+  height: 13px;
+  background: #ffffff;
+  border: 1px solid #1e90ff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .progress {
+    height: 100%;
+    background: rgba(30, 144, 255, 0.25);
+    transition: width 0.5s ease-in-out;
+  }
+}
+
+@media screen  and (max-width: 1200px) {
+
+
+  .div-main-home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background: var(--home-background);
+    gap: 20px;
+
+    &-cards-Indicators {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &-cards-columns {
+      display: flex  ;
+      flex-direction: column;
+      gap: 20px;
+
+      .recent-activity-div {
+        width: 100%;
+      }
+      .agent-health-div {
+        width: 100%;
+      }
+    }
+  }
+
+
+
+}
+
+
+
+
+@media screen and (max-width: 880px) {
+  .div-main-home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background: var(--home-background);
+    gap: 20px;
+
+    &-cards-indicators{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &-two-charts{
+      display: flex;
+      flex-direction: column;
+
+      .chart-line{
+        width: 100%;
+      }
+      .bar-chart{
+        width: 100%;
+      }
+
+
+
+    }
+
+    &-agent-activity{
+      display: flex;
+
+      flex-direction: column;
+
+      .agent-perform{
+        width: 100%;
+      }
+      .recent-activity{
+        width: 100%;
+      }
+    }
+
+  }
+
 }

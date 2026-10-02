@@ -1,8 +1,31 @@
+<nav class="navbar">
+  <section class="navbar_left">
+    <section class="navbar_brand">
+      <h1 class="text-center">RPA OPERATIONS CENTER</h1>
+    </section>
+  </section>
 
-<div class="header">
-  <div class="header-content">
-    <p>header.component works!</p>
-  </div>
 
-</div>
+  <section class="navbar_right">
+    <div class="user-menu-container">
+      <button class="user-button" (click)="toggleMenu()">
 
+        <div class="cl-avatar" *ngIf="!user.profile_img_url">
+          {{ user.first_name ? user.first_name.charAt(0) : "N"
+          }}{{ user.last_name ? user.last_name.charAt(0) : "N" }}
+        </div>
+        <p class="m-0 p-0 userTitle">{{ user?.first_name }}</p>
+      </button>
+
+      <div class="dropdown-menu" *ngIf="isMenuOpen">
+        <a class="dropdown-item" (click)="goToProfile()">
+          <span class="item-icon">👤</span> My Profile
+        </a>
+        <hr class="dropdown-divider" />
+        <a class="dropdown-item logout" (click)="logout()">
+          <span class="item-icon">🚪</span> Log out
+        </a>
+      </div>
+    </div>
+  </section>
+</nav>

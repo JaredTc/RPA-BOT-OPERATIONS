@@ -3,4 +3,101 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-}/* You can add global styles to this file, and also import other style files */
+}
+
+
+body{
+  background: #F4F6FD;
+}
+
+:root {
+  --home-background: #F4F6FD;
+  --home-color: #333;
+  --primary-color: dodgerblue;
+  --secondary-color: #E8E3FF;
+  --indicators-card: #F5ECFF;
+  --indicators-card2: #FFECEC;
+  --tittle-colors: #180191;
+  --tittles-colors1: #803FE0;
+  --title-colors3: #E74949;
+  --text-color-grey: rgba(89, 89, 89, 1);
+  --beecker-purple-text-color: rgb(98, 0, 209);
+  --background-text-color-purple-light: rgb(128, 63, 224);
+  --text-success:#32B538;
+  --background-text-succes:#E0FDE1;
+  --text-failed:#EE2C2CB2;
+  --background-text-failed:#FF95952E;
+  --color-dashed-border:rgba(89, 89, 89, 0.25);
+  //tipos de textos size
+  --title-font-size-large:1.250rem; //20px
+  --title-font-size-medium:1rem; //16px
+  --title-font-size-normal:0.875rem; //14px
+  --title-font-size-small:0.75rem; //12px
+  //tipos de textos weight
+  --font-weight-title:700;
+  --font-weight-sub-title:500;
+
+  // Scrollbar
+  --scrollbar-height: 7px;
+  --scrollbar-width: 7px;
+  --scrollbar-background: #f3f3f3;
+  --scrollbar-color: #dfd2f3;
+  --scrollbar-radius: 10px;
+}
+.cols-span{
+  width:200px;
+}
+
+.text-title {
+  color: var(--text-color-grey);
+  font-weight: var(--font-weight-title);
+
+  &.large {
+    font-size: var(--title-font-size-large);
+  }
+
+  &.medium {
+    font-size: var(--title-font-size-medium);
+  }
+
+  &.normal {
+    font-size: var(--title-font-size-normal);
+  }
+
+  &.small {
+    font-size: var(--title-font-size-small);
+  }
+}
+.text-subtitle {
+  color: var(--text-color-grey);
+  font-weight: var(--font-weight-sub-title);
+  &.large {
+    font-size: var(--title-font-size-large);
+  }
+  &.medium {
+    font-size: var(--title-font-size-medium);
+  }
+  &.normal {
+    font-size: var(--title-font-size-normal);
+  }
+  &.small {
+    font-size: var(--title-font-size-small);
+  }
+}
+
+.text-paragraph {
+  color: var(--text-color-grey);
+  // font-weight: var(--font-weight-sub-title);
+  &.large {
+    font-size: var(--title-font-size-large);
+  }
+  &.medium {
+    font-size: var(--title-font-size-medium);
+  }
+  &.normal {
+    font-size: var(--title-font-size-normal);
+  }
+  &.small {
+    font-size: var(--title-font-size-small);
+  }
+}

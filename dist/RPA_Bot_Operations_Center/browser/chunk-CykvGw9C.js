@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-DeWk0pI_.js`).then(o=>o.Home)}];export{t as HomeRoutes};

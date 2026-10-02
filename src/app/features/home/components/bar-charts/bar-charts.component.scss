@@ -1,0 +1,68 @@
+.containerBar {
+  padding: 5px 20px;
+}
+h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card {
+  //background-color: #f7f9ff;
+  //box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: 0px !important;
+}
+.cont-bts {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 10px 0px 0px;
+}
+
+.radio-inputs {
+  padding: 2px;
+  background-color: #78a8f0;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+.btn-inputs {
+  width: 73px;
+  font-size: 12px;
+  border: none;
+  background: #78a8f0;
+  color: white;
+  height: 25px;
+  border-radius: 50px;
+}
+.noDataDisplay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(7px);
+  display: flex;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+}
+.noDataDisplay span {
+  display: flex;
+  width: 35%;
+  height: 50px;
+  text-align: center;
+  background: #393939;
+  color: white;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.visiblechar {
+  height: 330px;
+}
+
+.novisiblechar {
+  height: 0px;
+}

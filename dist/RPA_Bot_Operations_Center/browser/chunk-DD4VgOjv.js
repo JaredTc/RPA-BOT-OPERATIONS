@@ -1,1 +1,0 @@
-var t=[{path:``,loadComponent:()=>import(`./chunk-Bm2MEHuD.js`).then(o=>o.Home)}];export{t as HomeRoutes};

@@ -1,7 +1,108 @@
-<div class="div-home-page">
-  <div>
-    <p>home works!</p>
+
+<div class="div-main-home">
+  <div class="header-title">
+    <div>
+      <h1 class="text-title large">Agent dashboard</h1>
+      <span class="text-subtitle medium">Monitor your system performace and agent activities</span>
+    </div>
+    <div class="date-month">
+      <span> {{month}}, {{year}} </span>
+    </div>
+  </div>
+
+  <div class="div-main-home-cards-indicators">
+    <div class="progress-card" *ngFor="let metric of metrics">
+
+      <div class="icon-text">
+        <img [src]="'/Icons/'+ metric?.icon + '.png'" alt="icon" class="icon" />
+      </div>
+      <div class="body-text">
+        <span class="text-title medium"> {{metric.title}}</span>
+        <span class="text-title medium">{{metric.value}}</span>
+      </div>
+
+
+      <!--      <div class="header">-->
+      <!--        <img [src]="'/Icons/'+ metric?.icon + '.png'" alt="icon" class="icon" />-->
+      <!--        <span class="title text-title large">{{ metric?.title }}</span>-->
+      <!--        <span class="value text-title large">{{ metric?.value }}</span>-->
+      <!--      </div>-->
+      <!--      <div *ngIf="metric?.progress" class="progress-bar">-->
+      <!--        <div  class="progress" [style.width.%]="metric?.progress"></div>-->
+      <!--      </div>-->
+    </div>
+  </div>
+  <div class="div-main-home-two-charts">
+    <div class="chart-line">
+      <h2 class="text-title medium">Performance metrics</h2>
+      <span class="text-subtitle medium">System performance over time</span>
+      <app-line-charts></app-line-charts>
+    </div>
+    <div class="bar-chart">
+      <h2 class="text-title medium">Agent activity</h2>
+      <span class="text-subtitle medium">Activity distribution by agent</span>
+      <app-bar-charts></app-bar-charts>
+    </div>
 
   </div>
 
+  <div class="div-main-home-agent-activity">
+    <div class="agent-perform">
+      <h2 class="text-title medium">Agent performance</h2>
+      <span class="text-subtitle medium">Monthly agent efficiency</span>
+      <div class="agents-div">
+        <div class="div-card" *ngFor="let agent of visibleAgents">
+          <div class="icon">
+            <img [src]="'/my-agents/' + agent.icon + '.png'" alt="agent icon" class="icon-image" />
+          </div>
+          <div class="agent-info">
+            <span class="tag">{{agent.tag}}</span>
+            <div class="porcent-desc">
+              <span class="">{{agent.description}}</span>
+              <span>{{agent.progress}}%</span>
+            </div>
+
+
+            <div *ngIf="agent.progress" class="progress-bar">
+              <div  class="progress" [style.width.%]="agent?.progress"></div>
+            </div>
+          </div>
+          <div class="time-lapse">
+            <span><i class="pi pi-clock"></i></span>
+            <span>{{agent.minutesSaved}} minutes saved</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-show">
+        <p-button
+          [label]="visibleAgentsCount >= agentHealth.length ? 'Show less' : 'Show more'"
+          (onClick)="showMore()">
+        </p-button>
+
+      </div>
+
+    </div>
+    <div class="recent-activity">
+      <h2 class="text-title medium">Recent activity</h2>
+      <span class="text-subtitle medium">Latest system events</span>
+      <div class="container-task">
+        <div class="card-activity" *ngFor="let task of tasks; let i = index">
+          <div class="task-info-content">
+            <div class="task-info">
+              <span class="title">{{task.title}}</span>
+              <span class="tag">{{task.tag}}</span>
+              <span class="time">{{task.time}}</span>
+            </div>
+            <div class="status">
+              <div>{{task.status}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
 </div>

@@ -5,7 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: angular_frontend
+    container_name: rpa_frontend
     ports:
-      - "4200:80"
+      - "8080:80"  # O el puerto que estés usando para el frontend
+    networks:
+      - backend-rpas-op-center_default
     restart: unless-stopped
+
+networks:
+  backend-rpas-op-center_default:
+    external: true

@@ -1,0 +1,67 @@
+
+<div class="div_main_login">
+
+  <div class="card-body_login">
+    <h4 class="text-center">RPA OPERATIONS CENTER</h4>
+
+    <div class="login-form">
+
+      <!-- Alerta de error backend -->
+      @if (errorMessage) {
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            class="form-control"
+            [class.is-invalid]="isFieldInvalid('username')"
+            placeholder="Enter username"
+          >
+          @if (isFieldInvalid('username')) {
+            <small class="text-danger">username is required</small>
+          }
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control"
+            [class.is-invalid]="isFieldInvalid('password')"
+            placeholder="Enter password"
+          >
+          @if (isFieldInvalid('password')) {
+            <small class="text-danger">La contraseña debe tener al menos 4 caracteres.</small>
+          }
+        </div>
+
+        <!-- Botón de Login -->
+        <div class="button_login">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            [disabled]="isLoading || loginForm.invalid"
+          >
+            @if (isLoading) {
+              Iniciando sesión...
+            } @else {
+              Login
+            }
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

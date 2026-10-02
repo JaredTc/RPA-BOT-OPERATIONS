@@ -1,26 +1,25 @@
-# --- ETAPA 1: Compilación de Angular ---
-FROM node:18-alpine AS build
-
+# --- ETAPA 1: Compilar la aplicación Angular ---
+FROM node:20-alpine AS build
 WORKDIR /app
 
-# Copiar manifiestos e instalar dependencias
+# Copiar archivos de dependencias e instalarlas
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
-# Copiar todo el código fuente
+# Copiar el código fuente y construir la aplicación para producción
 COPY . .
+RUN npm run build -- --configuration production
 
-# Ajustes de memoria y restricción de recursos para la compilación
-ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN npx ng build --configuration production --max-workers=1
-
-# --- ETAPA 2: Servidor Web Nginx ---
+# --- ETAPA 2: Servir los archivos con Nginx ---
 FROM nginx:alpine
 
-# Copiar archivos estáticos compilados
-# Nota: Si tu versión no genera la subcarpeta /browser, elimina "/browser" del final
-COPY --from=build /app/dist/RPA_Bot_Operations_Center/browser /usr/share/nginx/html/
+# Copiar la configuración de Nginx (para evitar errores 404 al recargar rutas)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar los archivos compilados de la etapa de build a Nginx
+# Nota: Ajusta 'nombre-de-tu-app' según el "name" que tengas en tu package.json
+# En Angular 17/18 la ruta suele ser dist/nombre-de-tu-app/browser
+COPY --from=build /app/dist/nombre-de-tu-app/browser /usr/share/nginx/html
 
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
